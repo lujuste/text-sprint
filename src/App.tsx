@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import GlobalStyle from "./GlobalStyle";
+
+import Workspace from "./Workspace";
+
+const template = [
+  {
+    x: 60,
+    y: 18,
+    text: "Contrato de Privacidade de Dados",
+    fontSize: 29,
+    fill: "#000",
+    fontStyle: "normal",
+    id: "simplasdasseText1",
+    object: "simpleText",
+  },
+];
 
 function App() {
+  const [objectScreen, setObjectScreen] = useState<any>(template);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Workspace setObjectScreen={setObjectScreen} template={objectScreen} />
+    </>
   );
 }
 
